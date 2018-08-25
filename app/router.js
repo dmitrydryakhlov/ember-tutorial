@@ -6,10 +6,15 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
+Router.map(function () {
   this.route('about');
   this.route('contact');
-  this.route('rentals');
+  //this.route('index', { path: '/'});
+  //you can modify the index route's path by specifying
+  //this.route('index', { path: '/custom-path'}).
+  this.route('rentals', function () {
+    this.route('show', { path: '/:rental_id' });
+  });
 });
 
 export default Router;
